@@ -69,6 +69,13 @@ func InitPowerImpl() {
 		return
 	}
 
+	scaphandreImpl := &source.PowerScaphandre{}
+	if scaphandreImpl.IsSystemCollectionSupported() {
+		klog.V(1).Infoln("use Scaphandre sysfs to optian power")
+		powerImpl = scaphandreImpl
+		return
+	}
+
 	klog.V(1).Infoln("Unable to obtain power, use estimate method")
 	estimateImpl := &source.PowerEstimate{}
 	powerImpl = estimateImpl
