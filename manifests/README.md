@@ -27,7 +27,7 @@ make build-manifest OPTS="<deployment options>"
 | TRAINER_DEPLOY           | patch online-trainer sidecar to model server                                                                 | MODEL_SERVER_DEPLOY option set                                                                                                                                                                       |
 | DEBUG_DEPLOY             | patch KEPLER_LOG_LEVEL for debugging                                                                         |
 | QAT_DEPLOY               | update proc path for Kepler to enable accelerator QAT                                                        | Intel QAT installed                                                                                                                                                                                  |
-
+| VIRTUAL_RAPL_DEPLOY      | allow Kepler to use virtual RAPL files, e.g., mounted into the VM                                            |    |-                                                                                                                                                                                                    |
 - build-manifest requirements:
   - kubectl v1.21+
   - make

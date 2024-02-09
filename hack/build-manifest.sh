@@ -113,6 +113,14 @@ deploy_bm() {
 	uncomment_patch bm "${MANIFESTS_OUT_DIR}"/exporter/kustomization.yaml
 	ok "Baremetal deployment configured"
 }
+deploy_virtual_RAPL(){
+	header "Virtal RAPL Deployment"
+	$VIRTUAL_RAPL_DEPLOY  || {
+		skip "virtal RAPL deployment"
+		return 0
+	}
+	uncomment_patch virtual_rapl "${MANIFESTS_OUT_DIR}"/exporter/kustomization.yaml
+}
 deploy_rootless() {
 	header "Rootless Deployment"
 	$ROOTLESS_DEPLOY || {
